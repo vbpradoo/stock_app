@@ -1,0 +1,57 @@
+
+
+<a class="lead" href="{{ lotes.url }}">{{ lote.serial }}</a>
+
+{% if lote.description is not empty%}
+  <br>{{ lote.description|linebreaksbr }}
+  {% else %}
+   <br> No tiene descripción
+{% endif %}
+<!-- {% if not lotes.is_public %}
+  <br><span class="label label-warning">private</span>
+{% else %}
+    <br>
+{% endif %} -->
+
+<span><strong>{{ lote.date_created|timesince }} ago</strong></span>
+
+<!-- {% if lotes.owner == user or user.is_superuser %} -->
+  <br><a class="btn btn-default btn-xs" role="button"
+      href="{% url "stock_lotes_edit" pk=lote.pk %}">Edita el lote</a>
+<!-- {% endif %} -->
+
+
+<script>
+    
+    var clients = [
+        { "Serial": "Otto Clay", "Articulo": 25, "Entrada": 1, "Salida": "Ap #897-1459 Quam Avenue", "Descripción": false }
+    ];
+ 
+    // var countries = [
+    //     { Name: "", Id: 0 },
+    //     { Name: "United States", Id: 1 },
+    //     { Name: "Canada", Id: 2 },
+    //     { Name: "United Kingdom", Id: 3 }
+    // ];
+ 
+    $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
+ 
+        inserting: true,
+        editing: true,
+        sorting: true,
+        paging: true,
+ 
+        data: clients,
+ 
+        fields: [
+            { name: "Serial", type: "text", width: 150, validate: "required" },
+            { name: "Artículo", type: "number", width: 50 },
+            { name: "Entrada", type: "text", width: 200 },
+            { name: "Salida", type: "text", textField: "S" },
+            { name: "Descripción", type: "text", sorting: false },
+            { type: "control" }
+        ]
+    });
+</script>

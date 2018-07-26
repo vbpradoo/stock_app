@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Últimos Lotes{% endblock %}
+<div id="jsGrid">
+    {% block heading %}
+    <h2>
+        Últimos Lotes
+    </h2>
+    {% endblock %}
+
+{% block content %}
+    <ul class="list-unstyled">
+        {% for lote in lotes %}
+        <li class="well well-sm">
+            {% include "stock/lote.html" %}
+        </li>
+        {% empty %}
+        <li>
+            No hay lotes.
+        </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</div>

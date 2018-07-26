@@ -1,0 +1,20 @@
+
+    #header {
+      h1 {
+        font-size: 26px;
+        font-weight: bold;
+      }
+      p { font-size: 12px;
+        a { text-decoration: none;
+          &:hover { border-width: 1px }
+        }
+      }
+    }
+
+$font-stack: "Times New Roman", Times, serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
